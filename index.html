@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AdShot Europe — AI Video Production</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #ffffff;
+  --bg2: #f7f7f5;
+  --bg3: #f0efe9;
+  --border: #e8e7e2;
+  --border-h: #d0cfc8;
+  --text: #1a1a18;
+  --text2: #6b6b65;
+  --text3: #a8a8a0;
+  --gold: #b89a4a;
+  --gold-bg: #faf6ed;
+  --r: 6px;
+  --r2: 10px;
+  --r3: 14px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 { font-family: 'Manrope', sans-serif; }
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 6vw;
+  height: 62px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(12px);
+}
+.nav-logo {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 17px;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  text-decoration: none;
+}
+.nav-logo span { color: var(--gold); }
+.nav-links { display: flex; gap: 28px; align-items: center; }
+.nav-links a {
+  font-size: 13.5px;
+  font-weight: 400;
+  color: var(--text2);
+  text-decoration: none;
+  transition: color 0.18s;
+  letter-spacing: -0.01em;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-cta {
+  background: var(--text) !important;
+  color: #fff !important;
+  font-weight: 500 !important;
+  padding: 8px 18px;
+  border-radius: var(--r);
+  font-size: 13.5px !important;
+  transition: opacity 0.18s !important;
+}
+.nav-cta:hover { opacity: 0.78 !important; }
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 62px 6vw 88px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+.hero-eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-bottom: 28px;
+  font-weight: 400;
+}
+.hero h1 {
+  font-size: clamp(48px, 7.5vw, 104px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.93;
+  color: var(--text);
+  max-width: 860px;
+  margin-bottom: 36px;
+}
+.hero h1 .accent { color: var(--gold); }
+.hero-sub {
+  font-size: 17px;
+  color: var(--text2);
+  max-width: 500px;
+  line-height: 1.7;
+  margin-bottom: 48px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+.hero-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: var(--text);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 13px 24px;
+  border-radius: var(--r);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: opacity 0.18s, transform 0.18s;
+}
+.btn-primary:hover { opacity: 0.82; transform: translateY(-1px); }
+
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: transparent;
+  color: var(--text2);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 12px 18px;
+  border-radius: var(--r);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  letter-spacing: -0.01em;
+  transition: border-color 0.18s, color 0.18s;
+}
+.btn-outline:hover { border-color: var(--border-h); color: var(--text); }
+
+.hero-stats {
+  position: absolute;
+  right: 6vw; bottom: 88px;
+  display: flex; flex-direction: column;
+  align-items: flex-end; gap: 36px;
+}
+.stat-num {
+  font-family: 'Manrope', sans-serif;
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--text);
+  line-height: 1;
+}
+.stat-num span { color: var(--gold); }
+.stat-label {
+  font-size: 11.5px;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 4px;
+  text-align: right;
+}
+
+.clients-section {
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+  background: var(--bg2);
+}
+.ticker-wrap {
+  overflow: hidden; position: relative; padding: 20px 0;
+}
+.ticker-wrap::before, .ticker-wrap::after {
+  content: ''; position: absolute; top: 0; bottom: 0; width: 100px; z-index: 2; pointer-events: none;
+}
+.ticker-wrap::before { left: 0; background: linear-gradient(90deg, var(--bg2), transparent); }
+.ticker-wrap::after  { right: 0; background: linear-gradient(-90deg, var(--bg2), transparent); }
+.ticker { display: flex; animation: ticker 32s linear infinite; width: max-content; }
+.ticker:hover { animation-play-state: paused; }
+@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.ticker-item {
+  padding: 0 36px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--text3); white-space: nowrap;
+  display: flex; align-items: center; gap: 36px;
+}
+.ticker-item::after { content: '·'; font-size: 18px; color: var(--border-h); }
+
+section { padding: 96px 6vw; }
+.section-eyebrow {
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--text3); margin-bottom: 16px; font-weight: 500;
+}
+.section-title {
+  font-size: clamp(30px, 3.8vw, 50px);
+  font-weight: 800; letter-spacing: -0.04em;
+  line-height: 1.06; max-width: 560px; margin-bottom: 16px; color: var(--text);
+}
+.section-title em { font-style: normal; color: var(--gold); }
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 1px; background: var(--border);
+  border: 1px solid var(--border); border-radius: var(--r3);
+  overflow: hidden; margin-top: 56px;
+}
+.service-card {
+  background: var(--bg); padding: 36px 32px; transition: background 0.2s;
+}
+.service-card:hover { background: var(--bg2); }
+.service-num {
+  font-family: 'Manrope', sans-serif; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.12em; color: var(--text3); margin-bottom: 28px;
+}
+.service-card h3 {
+  font-size: 17px; font-weight: 700; letter-spacing: -0.025em;
+  margin-bottom: 10px; color: var(--text); line-height: 1.3;
+}
+.service-card p {
+  font-size: 13.5px; color: var(--text2); line-height: 1.72; font-weight: 400;
+}
+.service-tag {
+  display: inline-block; margin-top: 18px;
+  font-size: 11px; letter-spacing: 0.06em; font-weight: 500;
+  color: var(--gold); background: var(--gold-bg);
+  border: 1px solid #e8d9a8; padding: 4px 10px; border-radius: 4px;
+}
+
+.work-section { background: var(--bg2); }
+.cases-top {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  margin-bottom: 48px; gap: 32px; flex-wrap: wrap;
+}
+.cases-top p {
+  font-size: 15px; color: var(--text2); max-width: 380px;
+  font-weight: 400; line-height: 1.7; letter-spacing: -0.01em;
+}
+.cases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.case-card {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: var(--r3); overflow: hidden;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  text-decoration: none; display: block;
+}
+.case-card:hover {
+  border-color: var(--border-h); transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+}
+.case-thumb {
+  aspect-ratio: 16/10; position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--bg3);
+}
+.case-thumb-text {
+  font-family: 'Manrope', sans-serif; font-size: 22px; font-weight: 800;
+  letter-spacing: -0.04em; color: var(--border-h); text-align: center; padding: 0 20px;
+}
+.case-play {
+  position: absolute; width: 40px; height: 40px; border-radius: 50%;
+  background: var(--bg); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; color: var(--text2); transition: border-color 0.2s, color 0.2s;
+}
+.case-card:hover .case-play { border-color: var(--border-h); color: var(--text); }
+.case-body { padding: 18px 20px 22px; }
+.case-type {
+  font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--text3); margin-bottom: 7px; font-weight: 500;
+}
+.case-body h3 {
+  font-size: 15px; font-weight: 700; letter-spacing: -0.025em;
+  color: var(--text); margin-bottom: 6px; line-height: 1.3;
+}
+.case-body p { font-size: 13px; color: var(--text2); line-height: 1.65; }
+.case-card.featured { grid-column: span 2; }
+.case-card.featured .case-thumb { aspect-ratio: 21/10; }
+.case-card.featured .case-thumb-text { font-size: 36px; }
+
+.awards-row { display: flex; gap: 12px; margin-top: 48px; flex-wrap: wrap; }
+.award-pill {
+  display: flex; align-items: center; gap: 10px;
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: var(--r2); padding: 12px 18px;
+}
+.award-title {
+  font-size: 13px; font-weight: 600; color: var(--text);
+  font-family: 'Manrope', sans-serif; letter-spacing: -0.01em;
+}
+.award-sub { font-size: 12px; color: var(--text3); }
+
+.process-inner {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: start; margin-top: 56px;
+}
+.process-left { position: sticky; top: 80px; }
+.process-left p {
+  font-size: 16px; color: var(--text2); line-height: 1.75;
+  margin-top: 20px; max-width: 400px; letter-spacing: -0.01em;
+}
+.steps { display: flex; flex-direction: column; }
+.step { display: flex; gap: 20px; padding: 28px 0; border-bottom: 1px solid var(--border); }
+.step:last-child { border-bottom: none; }
+.step-n {
+  font-family: 'Manrope', sans-serif; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.1em; color: var(--text3); min-width: 28px; padding-top: 2px;
+}
+.step h4 {
+  font-size: 16px; font-weight: 700; letter-spacing: -0.025em;
+  margin-bottom: 7px; color: var(--text);
+}
+.step p { font-size: 13.5px; color: var(--text2); line-height: 1.7; }
+
+.pricing-section { background: var(--bg2); }
+.pricing-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 14px; margin-top: 56px;
+}
+.pricing-card {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: var(--r3); padding: 32px 28px;
+  transition: border-color 0.2s; position: relative;
+}
+.pricing-card:hover { border-color: var(--border-h); }
+.pricing-card.featured { border-color: var(--text); }
+.featured-badge {
+  position: absolute; top: -1px; right: 22px;
+  background: var(--text); color: #fff;
+  font-size: 10.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 5px 11px; border-radius: 0 0 var(--r) var(--r);
+}
+.plan-name {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--text3); margin-bottom: 14px;
+}
+.plan-price {
+  font-family: 'Manrope', sans-serif; font-size: 38px; font-weight: 800;
+  letter-spacing: -0.04em; color: var(--text); line-height: 1; margin-bottom: 4px;
+}
+.plan-price sup { font-size: 20px; font-weight: 500; vertical-align: super; }
+.plan-period { font-size: 13px; color: var(--text3); }
+.plan-desc {
+  font-size: 13px; color: var(--text2); margin: 16px 0 20px;
+  line-height: 1.65; letter-spacing: -0.01em;
+}
+.plan-divider { height: 1px; background: var(--border); margin-bottom: 20px; }
+.plan-features { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.plan-features li {
+  font-size: 13.5px; color: var(--text2); display: flex;
+  align-items: flex-start; gap: 9px; letter-spacing: -0.01em; line-height: 1.5;
+}
+.plan-features li::before {
+  content: '✓'; color: var(--gold); font-size: 12px;
+  font-weight: 600; padding-top: 1px; flex-shrink: 0;
+}
+.plan-cta {
+  display: block; width: 100%; margin-top: 28px; padding: 11px; text-align: center;
+  border: 1px solid var(--border); border-radius: var(--r);
+  color: var(--text2); font-size: 13.5px; font-weight: 500; text-decoration: none;
+  transition: border-color 0.18s, color 0.18s; letter-spacing: -0.01em;
+}
+.plan-cta:hover { border-color: var(--border-h); color: var(--text); }
+.pricing-card.featured .plan-cta {
+  background: var(--text); border-color: var(--text); color: #fff;
+}
+.pricing-card.featured .plan-cta:hover { opacity: 0.82; }
+
+.cta-section {
+  text-align: center; padding: 112px 6vw;
+  border-top: 1px solid var(--border);
+}
+.cta-section h2 {
+  font-size: clamp(34px, 5vw, 64px); font-weight: 800; letter-spacing: -0.04em;
+  line-height: 1.02; max-width: 660px; margin: 0 auto 20px; color: var(--text);
+}
+.cta-section h2 em { font-style: normal; color: var(--gold); }
+.cta-section p {
+  font-size: 16px; color: var(--text2); max-width: 440px; margin: 0 auto 40px;
+  line-height: 1.7; letter-spacing: -0.01em;
+}
+.cta-row {
+  display: flex; gap: 10px; justify-content: center;
+  align-items: center; flex-wrap: wrap;
+}
+.cta-or { font-size: 12px; color: var(--text3); }
+
+footer {
+  padding: 36px 6vw; border-top: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 20px; flex-wrap: wrap; background: var(--bg2);
+}
+.footer-logo {
+  font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 15px;
+  letter-spacing: -0.03em; color: var(--text2); text-decoration: none;
+}
+.footer-logo span { color: var(--gold); }
+.footer-links { display: flex; gap: 20px; }
+.footer-links a {
+  font-size: 13px; color: var(--text3); text-decoration: none; transition: color 0.18s;
+}
+.footer-links a:hover { color: var(--text2); }
+.footer-copy { font-size: 12px; color: var(--text3); }
+
+.about-section {
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+}
+.about-top {
+  max-width: 640px;
+  margin-bottom: 56px;
+}
+.about-top h2 {
+  font-size: clamp(28px, 3.5vw, 46px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.06;
+  color: var(--text);
+  margin-bottom: 0;
+}
+.about-top h2 em { font-style: normal; color: var(--gold); }
+.about-cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--r3);
+  overflow: hidden;
+}
+.about-col {
+  background: var(--bg);
+  padding: 32px 28px 36px;
+}
+.about-col-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text3);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.about-col-label::before {
+  content: '';
+  display: inline-block;
+  width: 16px; height: 1px;
+  background: var(--text3);
+  flex-shrink: 0;
+}
+.about-col p {
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.75;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+.about-col p strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+@media (max-width: 880px) {
+  .about-cols { grid-template-columns: 1fr; }
+}
+
+.thumb-1 { background: #f0ede5; }
+.thumb-2 { background: #e8edf2; }
+.thumb-3 { background: #e8f0eb; }
+.thumb-4 { background: #f0e8ea; }
+
+/* ── SHOWREEL ────────────────────────────── */
+.showreel-section {
+  position: relative;
+  background: var(--text);
+  overflow: hidden;
+  cursor: pointer;
+}
+.showreel-poster {
+  width: 100%;
+  aspect-ratio: 16/7;
+  object-fit: cover;
+  display: block;
+  opacity: 0.72;
+  transition: opacity 0.4s, transform 0.6s;
+}
+.showreel-section:hover .showreel-poster {
+  opacity: 0.55;
+  transform: scale(1.02);
+}
+.showreel-overlay {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 20px;
+}
+.showreel-play {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  border: 1.5px solid rgba(255,255,255,0.5);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff;
+  font-size: 22px;
+  padding-left: 4px;
+  transition: background 0.25s, transform 0.25s, border-color 0.25s;
+  backdrop-filter: blur(4px);
+}
+.showreel-section:hover .showreel-play {
+  background: rgba(255,255,255,0.25);
+  border-color: rgba(255,255,255,0.8);
+  transform: scale(1.08);
+}
+.showreel-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  font-weight: 500;
+}
+
+/* ── LIGHTBOX ────────────────────────────── */
+.lightbox {
+  display: none;
+  position: fixed; inset: 0; z-index: 999;
+  background: rgba(0,0,0,0.88);
+  align-items: center; justify-content: center;
+  backdrop-filter: blur(8px);
+}
+.lightbox.active { display: flex; }
+.lightbox-inner {
+  position: relative;
+  width: min(900px, 92vw);
+  aspect-ratio: 16/9;
+}
+.lightbox-inner iframe {
+  width: 100%; height: 100%;
+  border: none; border-radius: var(--r2);
+}
+.lightbox-close {
+  position: absolute;
+  top: -44px; right: 0;
+  width: 36px; height: 36px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50%;
+  color: #fff;
+  font-size: 18px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+  line-height: 1;
+}
+.lightbox-close:hover { background: rgba(255,255,255,0.22); }
+
+/* ── CASE CARD ENHANCED ──────────────────── */
+.case-thumb { overflow: hidden; }
+.case-thumb img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s;
+  opacity: 0.88;
+}
+.case-card:hover .case-thumb img {
+  transform: scale(1.04);
+  opacity: 1;
+}
+.case-thumb-fallback {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--bg3);
+}
+.case-thumb-fallback span {
+  font-family: 'Manrope', sans-serif;
+  font-size: 22px; font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--border-h);
+}
+.case-card.featured .case-thumb-fallback span { font-size: 36px; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-eyebrow { animation: fadeUp 0.6s ease both; }
+.hero h1      { animation: fadeUp 0.6s ease 0.07s both; }
+.hero-sub     { animation: fadeUp 0.6s ease 0.14s both; }
+.hero-actions { animation: fadeUp 0.6s ease 0.21s both; }
+
+@keyframes fadeIn {
+  from { opacity: 0; } to { opacity: 1; }
+}
+.lightbox.active { animation: fadeIn 0.2s ease both; }
+
+@media (max-width: 880px) {
+  .hero-stats    { display: none; }
+  .process-inner { grid-template-columns: 1fr; gap: 40px; }
+  .process-left  { position: static; }
+  .cases-grid    { grid-template-columns: 1fr; }
+  .case-card.featured { grid-column: span 1; }
+  .case-card.featured .case-thumb { aspect-ratio: 16/10; }
+  .case-card.featured .case-thumb-text { font-size: 22px; }
+  .pricing-grid  { grid-template-columns: 1fr; }
+  .nav-links     { display: none; }
+  .cases-top     { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Adshot<span>.</span>Europe</a>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#work">Work</a>
+    <a href="#process">Process</a>
+    <a href="#pricing">Pricing</a>
+    <a href="https://calendly.com/adshot-europe" class="nav-cta">Book a call</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <p class="hero-eyebrow">AI Video Production · Lisbon &amp; Barcelona</p>
+  <h1>Video that<br><span class="accent">converts.</span><br>Not just looks good.</h1>
+  <p class="hero-sub">AI-powered video production for European brands — performance creatives, explainer videos, and full campaigns. Faster and 30% cheaper than traditional production.</p>
+  <div class="hero-actions">
+    <a href="https://calendly.com/adshot-europe" class="btn-primary">Book a discovery call →</a>
+    <a href="mailto:serhii@adshot.eu" class="btn-outline">Send an email</a>
+    <a href="https://linkedin.com/in/serhiinabok" class="btn-outline">LinkedIn →</a>
+  </div>
+  <div class="hero-stats">
+    <div>
+      <div class="stat-num">16<span>+</span></div>
+      <div class="stat-label">Years in production</div>
+    </div>
+    <div>
+      <div class="stat-num">€<span>8–35k</span></div>
+      <div class="stat-label">Avg. project range</div>
+    </div>
+    <div>
+      <div class="stat-num">30<span>%</span></div>
+      <div class="stat-label">Cost vs. traditional</div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lightbox-close">✕</button>
+    <iframe id="lightbox-iframe" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+</div>
+
+<!-- SHOWREEL -->
+<div class="showreel-section" id="showreel-trigger">
+  <img
+    class="showreel-poster"
+    src="https://www.adshot.ua/wp-content/uploads/2025/07/showreel-scaled.png"
+    alt="Adshot Europe Showreel"
+    onerror="this.style.display='none'; this.parentElement.style.background='#1a1a18'; this.parentElement.style.aspectRatio='16/7';"
+  >
+  <div class="showreel-overlay">
+    <div class="showreel-play">▶</div>
+    <div class="showreel-label">Watch showreel</div>
+  </div>
+</div>
+
+<div class="clients-section">
+  <div class="ticker-wrap">
+    <div class="ticker">
+      <div class="ticker-item">UkrSibbank</div>
+      <div class="ticker-item">Syngenta</div>
+      <div class="ticker-item">Atoxil</div>
+      <div class="ticker-item">AB InBev</div>
+      <div class="ticker-item">Battery Energy</div>
+      <div class="ticker-item">UNFPA</div>
+      <div class="ticker-item">Bayer</div>
+      <div class="ticker-item">Carlsberg</div>
+      <div class="ticker-item">L'Oréal Paris</div>
+      <div class="ticker-item">Grimbergen</div>
+      <div class="ticker-item">PrivatBank</div>
+      <div class="ticker-item">Oschadbank</div>
+      <div class="ticker-item">UkrSibbank</div>
+      <div class="ticker-item">Syngenta</div>
+      <div class="ticker-item">Atoxil</div>
+      <div class="ticker-item">AB InBev</div>
+      <div class="ticker-item">Battery Energy</div>
+      <div class="ticker-item">UNFPA</div>
+      <div class="ticker-item">Bayer</div>
+      <div class="ticker-item">Carlsberg</div>
+      <div class="ticker-item">L'Oréal Paris</div>
+      <div class="ticker-item">Grimbergen</div>
+      <div class="ticker-item">PrivatBank</div>
+      <div class="ticker-item">Oschadbank</div>
+    </div>
+  </div>
+</div>
+
+<section id="about" class="about-section">
+  <div class="about-top">
+    <p class="section-eyebrow">Built in Ukraine. Focused on Europe.</p>
+    <h2>16 years of production.<br><em>Forged under pressure.</em></h2>
+  </div>
+  <div class="about-cols">
+    <div class="about-col">
+      <div class="about-col-label">Ukrainian roots</div>
+      <p>Adshot started in Kyiv. Our <strong>creative agency and full-cycle production studio</strong> still operate there — serving brands like AB InBev, Bayer, L'Oréal, and Carlsberg. That environment taught us to deliver under real constraints: tight deadlines, limited budgets, zero margin for error.</p>
+    </div>
+    <div class="about-col">
+      <div class="about-col-label">The range</div>
+      <p>From 30-second ads to feature documentaries — our team has made them all. We contributed to <em>Bucha</em>, a documentary now streaming on <strong>Apple TV in the US, UK, and Canada.</strong> That level of craft doesn't disappear when the brief is smaller. It just gets focused.</p>
+    </div>
+    <div class="about-col">
+      <div class="about-col-label">What that means for you</div>
+      <p>Eastern European production quality at <strong>30% lower cost</strong> than local EU studios. A team that's been stress-tested. A 48-hour proposal turnaround — because we don't waste your time.</p>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <p class="section-eyebrow">What we do</p>
+  <h2 class="section-title">One studio.<br><em>All the video</em> you need.</h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <h3>Performance Creatives</h3>
+      <p>Ad-ready video assets for Meta, YouTube, TikTok, and programmatic. Optimized for conversion, not just views. Multiple ratios and variants in one production cycle.</p>
+      <span class="service-tag">B2B · iGaming · SaaS</span>
+    </div>
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <h3>Explainer Videos</h3>
+      <p>Complex products explained simply. We write the script, design the visuals, and deliver a video your sales team will actually use — in 10–14 business days.</p>
+      <span class="service-tag">SaaS · Fintech · Events</span>
+    </div>
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <h3>AI Animation</h3>
+      <p>Award-winning AI-generated animation blended with traditional motion design. A distinctive visual language at a fraction of conventional animation budgets.</p>
+      <span class="service-tag">Best Animation · LA AI Film Festival 2025</span>
+    </div>
+    <div class="service-card">
+      <div class="service-num">04</div>
+      <h3>White-Label Production</h3>
+      <p>We act as your silent production partner under our Lumiere brand. Agencies and holding structures get full production capacity without the overhead.</p>
+      <span class="service-tag">For agencies &amp; partners</span>
+    </div>
+  </div>
+</section>
+
+<section id="work" class="work-section">
+  <div class="cases-top">
+    <div>
+      <p class="section-eyebrow">Selected work</p>
+      <h2 class="section-title">Cases that<br>moved the <em>needle.</em></h2>
+    </div>
+    <p>Real campaigns built around a measurable objective — not just a brief to execute.</p>
+  </div>
+  <div class="cases-grid">
+    <a href="https://www.adshot.ua/ourworks/nichna-zmina-shi-film/" target="_blank" class="case-card featured">
+      <div class="case-thumb thumb-1" style="aspect-ratio:21/10;">
+        <img
+          src="https://img.youtube.com/vi/PjTysjadbiE/maxresdefault.jpg"
+          alt="Night Shift"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        >
+        <div class="case-thumb-fallback" style="display:none; position:absolute; inset:0;">
+          <span>Night Shift</span>
+        </div>
+        <div class="case-play">▶</div>
+      </div>
+      <div class="case-body">
+        <p class="case-type">AI Animation · Short Film</p>
+        <h3>Night Shift — Best Short Animation</h3>
+        <p>Winner at LA AI Film Festival &amp; MEGOGO AI Festival 2025. Proof that AI-generated visuals can carry emotional depth and production-quality storytelling.</p>
+      </div>
+    </a>
+    <a href="https://www.adshot.ua/ourworks/syngenta-dim-sad-gorod/" target="_blank" class="case-card">
+      <div class="case-thumb thumb-2">
+        <div class="case-thumb-fallback" style="display:flex; position:absolute; inset:0;">
+          <span>Syngenta</span>
+        </div>
+        <div class="case-play">▶</div>
+      </div>
+      <div class="case-body">
+        <p class="case-type">App Campaign · Production</p>
+        <h3>Syngenta App Launch</h3>
+        <p>Full-cycle video campaign targeting agricultural professionals across CEE.</p>
+      </div>
+    </a>
+    <a href="https://www.adshot.ua/ourworks/atoksil-polsha/" target="_blank" class="case-card">
+      <div class="case-thumb thumb-3">
+        <div class="case-thumb-fallback" style="display:flex; position:absolute; inset:0;">
+          <span>Atoxil</span>
+        </div>
+        <div class="case-play">▶</div>
+      </div>
+      <div class="case-body">
+        <p class="case-type">Pharma · Polish Market Entry</p>
+        <h3>Atoxil Poland</h3>
+        <p>Market entry campaign for a pharma brand entering Poland. Scripted, produced, and localized in 3 weeks.</p>
+      </div>
+    </a>
+    <a href="https://www.adshot.ua/ourworks/ukrsibbank-richnij-zvit/" target="_blank" class="case-card">
+      <div class="case-thumb thumb-4">
+        <div class="case-thumb-fallback" style="display:flex; position:absolute; inset:0;">
+          <span>UkrSibbank</span>
+        </div>
+        <div class="case-play">▶</div>
+      </div>
+      <div class="case-body">
+        <p class="case-type">Financial Services · Brand Video</p>
+        <h3>UkrSibbank Brand Campaign</h3>
+        <p>Performance-focused brand video series for one of Ukraine's largest retail banks.</p>
+      </div>
+    </a>
+  </div>
+  <div class="awards-row">
+    <div class="award-pill">
+      <div>
+        <div class="award-title">🏆 Best Short Animation</div>
+        <div class="award-sub">LA AI Film Festival 2025</div>
+      </div>
+    </div>
+    <div class="award-pill">
+      <div>
+        <div class="award-title">🥇 Best Animation</div>
+        <div class="award-sub">MEGOGO AI Festival 2025</div>
+      </div>
+    </div>
+    <div class="award-pill">
+      <div>
+        <div class="award-title">📽 16 years</div>
+        <div class="award-sub">Video production experience</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="process-inner">
+    <div class="process-left">
+      <p class="section-eyebrow">Process</p>
+      <h2 class="section-title">Brief to<br>delivery in<br><em>14 days.</em></h2>
+      <p>No endless back-and-forths, no scope creep surprises. A clear 5-step process from first call to final file — and we hit the deadline.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <span class="step-n">01</span>
+        <div>
+          <h4>Discovery call (30 min)</h4>
+          <p>We learn your objective, audience, and existing assets. A proposal arrives within 48 hours — scope and price, no fluff.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-n">02</span>
+        <div>
+          <h4>Brief &amp; concept</h4>
+          <p>We write the creative brief and present two concept directions. You choose one. One decision, one direction forward.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-n">03</span>
+        <div>
+          <h4>Production</h4>
+          <p>Script, visuals, voiceover, motion — all in-house at our Lumiere studio. You see a rough cut on day 7.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-n">04</span>
+        <div>
+          <h4>Revisions</h4>
+          <p>Two rounds of revisions included. Comments on Monday means an updated cut by Wednesday.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-n">05</span>
+        <div>
+          <h4>Delivery &amp; variants</h4>
+          <p>Final file plus all channel variants — 16:9, 9:16, 1:1, subtitled, silent. Ready to launch the day you receive them.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" class="pricing-section">
+  <p class="section-eyebrow">Pricing</p>
+  <h2 class="section-title">Transparent.<br><em>No surprises.</em></h2>
+  <div class="pricing-grid">
+    <div class="pricing-card">
+      <div class="plan-name">Pilot</div>
+      <div class="plan-price"><sup>€</sup>8k</div>
+      <div class="plan-period">per project</div>
+      <p class="plan-desc">One video. Proof of concept. The right way to start working together.</p>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li>1 × 60–90 sec finished video</li>
+        <li>Script + concept included</li>
+        <li>2 revision rounds</li>
+        <li>3 channel format variants</li>
+        <li>48h proposal turnaround</li>
+      </ul>
+      <a href="mailto:serhii@adshot.eu" class="plan-cta">Get a proposal</a>
+    </div>
+    <div class="pricing-card featured">
+      <div class="featured-badge">Most popular</div>
+      <div class="plan-name">Campaign</div>
+      <div class="plan-price"><sup>€</sup>15–25k</div>
+      <div class="plan-period">per project</div>
+      <p class="plan-desc">Multi-asset campaign with full creative development and production.</p>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li>3–5 video assets</li>
+        <li>Creative strategy &amp; scripting</li>
+        <li>AI animation options available</li>
+        <li>All channel variants + cuts</li>
+        <li>Dedicated account contact</li>
+        <li>14-day delivery</li>
+      </ul>
+      <a href="https://calendly.com/adshot-europe" class="plan-cta">Book a call</a>
+    </div>
+    <div class="pricing-card">
+      <div class="plan-name">Retainer</div>
+      <div class="plan-price"><sup>€</sup>35k+</div>
+      <div class="plan-period">per quarter</div>
+      <p class="plan-desc">Ongoing production partnership for brands that need a steady flow of video.</p>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li>Monthly creative cadence</li>
+        <li>White-label option (Lumiere)</li>
+        <li>Priority turnaround</li>
+        <li>Dedicated production team</li>
+        <li>Strategic creative input</li>
+      </ul>
+      <a href="mailto:serhii@adshot.eu" class="plan-cta">Let's talk</a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <h2>Ready to make<br>video that <em>works?</em></h2>
+  <p>Book a 30-minute discovery call. We'll tell you honestly whether we're a fit — and if we are, you'll have a proposal in 48 hours.</p>
+  <div class="cta-row">
+    <a href="https://calendly.com/adshot-europe" class="btn-primary">Book a call →</a>
+    <span class="cta-or">or</span>
+    <a href="mailto:serhii@adshot.eu" class="btn-outline">serhii@adshot.eu</a>
+    <a href="https://linkedin.com/in/serhiinabok" class="btn-outline">LinkedIn →</a>
+  </div>
+</section>
+
+<footer>
+  <a href="#" class="footer-logo">Adshot<span>.</span>Europe</a>
+  <div class="footer-links">
+    <a href="#services">Services</a>
+    <a href="#work">Work</a>
+    <a href="#process">Process</a>
+    <a href="#pricing">Pricing</a>
+    <a href="mailto:serhii@adshot.eu">Contact</a>
+  </div>
+  <div class="footer-copy">Lisbon, Portugal · © 2025 AdShot Europe</div>
+</footer>
+
+<script>
+  const lb = document.getElementById('lightbox');
+  const lbIframe = document.getElementById('lightbox-iframe');
+  const lbClose = document.getElementById('lightbox-close');
+  const showreel = document.getElementById('showreel-trigger');
+  const YT_URL = 'https://www.youtube.com/embed/PjTysjadbiE?autoplay=1&rel=0';
+
+  function openLightbox() {
+    lbIframe.src = YT_URL;
+    lb.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    lb.classList.remove('active');
+    lbIframe.src = '';
+    document.body.style.overflow = '';
+  }
+
+  showreel.addEventListener('click', openLightbox);
+  lbClose.addEventListener('click', closeLightbox);
+  lb.addEventListener('click', function(e) {
+    if (e.target === lb) closeLightbox();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+</script>
+</body>
+</html>
