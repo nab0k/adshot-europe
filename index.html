@@ -478,6 +478,110 @@ footer {
   .about-cols { grid-template-columns: 1fr; }
 }
 
+/* ── PORTFOLIO MUURI GRID ────────────────── */
+.cases-list { position: relative; }
+
+.port-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -8px;
+}
+
+.port-item {
+  padding: 0 8px;
+  margin-bottom: 16px;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.port-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.port-item--25 { width: 25%; }
+.port-item--50 { width: 50%; }
+.port-item--75 { width: 75%; }
+.port-item--100 { width: 100%; }
+
+.port-card {
+  display: block;
+  text-decoration: none;
+  position: relative;
+}
+
+.port-photo {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg3);
+  border-radius: var(--r2);
+}
+
+.port-item--75 .port-photo,
+.port-item--100 .port-photo { aspect-ratio: 16/9; }
+.port-item--50 .port-photo  { aspect-ratio: 4/3; }
+.port-item--25 .port-photo  { aspect-ratio: 1/1; }
+
+.port-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s;
+  opacity: 0.92;
+}
+.port-card:hover .port-photo img {
+  transform: scale(1.04);
+  opacity: 1;
+}
+
+.port-play {
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.18);
+  border: 1.5px solid rgba(255,255,255,0.55);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px; color: #fff;
+  padding-left: 3px;
+  backdrop-filter: blur(4px);
+  transition: background 0.25s, transform 0.25s, border-color 0.25s;
+  z-index: 2;
+}
+.port-card:hover .port-play {
+  background: rgba(255,255,255,0.3);
+  border-color: rgba(255,255,255,0.85);
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.port-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  padding: 8px 2px 0;
+}
+.port-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px; font-weight: 600;
+  color: var(--text); letter-spacing: -0.02em;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  flex: 1;
+}
+.port-cat {
+  font-size: 11px; font-weight: 400;
+  color: var(--text3); text-transform: uppercase;
+  letter-spacing: 0.08em; white-space: nowrap; flex-shrink: 0;
+}
+
+@media (max-width: 880px) {
+  .port-item--25,
+  .port-item--75 { width: 100%; }
+  .port-item--50 { width: 100%; }
+  .port-item--25 .port-photo { aspect-ratio: 16/9; }
+  .port-item--75 .port-photo { aspect-ratio: 16/9; }
+}
+
 .thumb-1 { background: #f0ede5; }
 .thumb-2 { background: #e8edf2; }
 .thumb-3 { background: #e8f0eb; }
@@ -773,65 +877,97 @@ footer {
     </div>
     <p>Real campaigns built around a measurable objective — not just a brief to execute.</p>
   </div>
-  <div class="cases-grid">
-    <a href="https://www.adshot.ua/ourworks/nichna-zmina-shi-film/" target="_blank" class="case-card featured">
-      <div class="case-thumb thumb-1" style="aspect-ratio:21/10;">
-        <img
-          src="https://img.youtube.com/vi/PjTysjadbiE/maxresdefault.jpg"
-          alt="Night Shift"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-        >
-        <div class="case-thumb-fallback" style="display:none; position:absolute; inset:0;">
-          <span>Night Shift</span>
-        </div>
-        <div class="case-play">▶</div>
+
+  <div class="cases-list">
+    <div class="port-grid" id="portGrid">
+
+      <!-- Night Shift — large 75% -->
+      <div class="port-item port-item--75">
+        <a href="https://www.adshot.ua/ourworks/nichna-zmina-shi-film/" target="_blank" class="port-card">
+          <div class="port-photo">
+            <img src="nichna-zmina.gif" alt="Night Shift">
+            <div class="port-play">▶</div>
+          </div>
+          <div class="port-info">
+            <span class="port-title">Night Shift — Best Short Animation</span>
+            <span class="port-cat">AI Animation</span>
+          </div>
+        </a>
       </div>
-      <div class="case-body">
-        <p class="case-type">AI Animation · Short Film</p>
-        <h3>Night Shift — Best Short Animation</h3>
-        <p>Winner at LA AI Film Festival &amp; MEGOGO AI Festival 2025. Proof that AI-generated visuals can carry emotional depth and production-quality storytelling.</p>
+
+      <!-- Syngenta — small 25% -->
+      <div class="port-item port-item--25">
+        <a href="https://www.adshot.ua/ourworks/syngenta-dim-sad-gorod/" target="_blank" class="port-card">
+          <div class="port-photo">
+            <img src="syngenta.webp" alt="Syngenta">
+            <div class="port-play">▶</div>
+          </div>
+          <div class="port-info">
+            <span class="port-title">Syngenta App Launch</span>
+            <span class="port-cat">Production</span>
+          </div>
+        </a>
       </div>
-    </a>
-    <a href="https://www.adshot.ua/ourworks/syngenta-dim-sad-gorod/" target="_blank" class="case-card">
-      <div class="case-thumb thumb-2">
-        <div class="case-thumb-fallback" style="display:flex; position:absolute; inset:0;">
-          <span>Syngenta</span>
-        </div>
-        <div class="case-play">▶</div>
+
+      <!-- Grimbergen — small 25% -->
+      <div class="port-item port-item--25">
+        <a href="https://www.adshot.ua/ourworks/belgijska-legenda-grimbergen/" target="_blank" class="port-card">
+          <div class="port-photo">
+            <img src="grimbergen.webp" alt="Grimbergen">
+            <div class="port-play">▶</div>
+          </div>
+          <div class="port-info">
+            <span class="port-title">Grimbergen: Belgian Legend</span>
+            <span class="port-cat">Campaign</span>
+          </div>
+        </a>
       </div>
-      <div class="case-body">
-        <p class="case-type">App Campaign · Production</p>
-        <h3>Syngenta App Launch</h3>
-        <p>Full-cycle video campaign targeting agricultural professionals across CEE.</p>
+
+      <!-- Atoxil — large 75% -->
+      <div class="port-item port-item--75">
+        <a href="https://www.adshot.ua/ourworks/atoksil-polsha/" target="_blank" class="port-card">
+          <div class="port-photo">
+            <img src="atoxil.webp" alt="Atoxil Poland">
+            <div class="port-play">▶</div>
+          </div>
+          <div class="port-info">
+            <span class="port-title">Atoxil: Polish Market Entry</span>
+            <span class="port-cat">Pharma · Campaign</span>
+          </div>
+        </a>
       </div>
-    </a>
-    <a href="https://www.adshot.ua/ourworks/atoksil-polsha/" target="_blank" class="case-card">
-      <div class="case-thumb thumb-3">
-        <div class="case-thumb-fallback" style="display:flex; position:absolute; inset:0;">
-          <span>Atoxil</span>
-        </div>
-        <div class="case-play">▶</div>
+
+      <!-- Battery × Binance — 50% -->
+      <div class="port-item port-item--50">
+        <a href="https://www.adshot.ua/ourworks/plyusuyemo-mozhlyvosti-z-battery-binance/" target="_blank" class="port-card">
+          <div class="port-photo">
+            <img src="battery-binance.webp" alt="Battery × Binance">
+            <div class="port-play">▶</div>
+          </div>
+          <div class="port-info">
+            <span class="port-title">Battery × Binance</span>
+            <span class="port-cat">Campaign</span>
+          </div>
+        </a>
       </div>
-      <div class="case-body">
-        <p class="case-type">Pharma · Polish Market Entry</p>
-        <h3>Atoxil Poland</h3>
-        <p>Market entry campaign for a pharma brand entering Poland. Scripted, produced, and localized in 3 weeks.</p>
+
+      <!-- UkrSibbank — 50% -->
+      <div class="port-item port-item--50">
+        <a href="https://www.adshot.ua/ourworks/ukrsibbank-richnij-zvit/" target="_blank" class="port-card">
+          <div class="port-photo">
+            <img src="cases-photo1.webp" alt="UkrSibbank">
+            <div class="port-play">▶</div>
+          </div>
+          <div class="port-info">
+            <span class="port-title">UkrSibbank Brand Campaign</span>
+            <span class="port-cat">Financial Services</span>
+          </div>
+        </a>
       </div>
-    </a>
-    <a href="https://www.adshot.ua/ourworks/ukrsibbank-richnij-zvit/" target="_blank" class="case-card">
-      <div class="case-thumb thumb-4">
-        <div class="case-thumb-fallback" style="display:flex; position:absolute; inset:0;">
-          <span>UkrSibbank</span>
-        </div>
-        <div class="case-play">▶</div>
-      </div>
-      <div class="case-body">
-        <p class="case-type">Financial Services · Brand Video</p>
-        <h3>UkrSibbank Brand Campaign</h3>
-        <p>Performance-focused brand video series for one of Ukraine's largest retail banks.</p>
-      </div>
-    </a>
+
+    </div>
   </div>
+
   <div class="awards-row">
     <div class="award-pill">
       <div>
@@ -979,6 +1115,7 @@ footer {
 </footer>
 
 <script>
+  // ── Lightbox ──────────────────────────────────────────────────
   const lb = document.getElementById('lightbox');
   const lbIframe = document.getElementById('lightbox-iframe');
   const lbClose = document.getElementById('lightbox-close');
@@ -998,12 +1135,26 @@ footer {
 
   showreel.addEventListener('click', openLightbox);
   lbClose.addEventListener('click', closeLightbox);
-  lb.addEventListener('click', function(e) {
-    if (e.target === lb) closeLightbox();
-  });
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeLightbox();
-  });
+  lb.addEventListener('click', function(e) { if (e.target === lb) closeLightbox(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); });
+
+  // ── Portfolio staggered reveal on scroll ──────────────────────
+  const items = document.querySelectorAll('.port-item');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const item = entry.target;
+        const idx = Array.from(items).indexOf(item);
+        setTimeout(() => {
+          item.classList.add('visible');
+        }, (idx % 3) * 90);
+        observer.unobserve(item);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  items.forEach(item => observer.observe(item));
 </script>
 </body>
 </html>
