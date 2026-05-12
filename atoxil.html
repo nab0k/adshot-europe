@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atoxil: Go Viral — AdShot Europe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#ffffff;--bg2:#f7f7f5;--bg3:#f0efe9;--border:#e8e7e2;--border-h:#d0cfc8;--text:#1a1a18;--text2:#6b6b65;--text3:#a8a8a0;--gold:#b89a4a;--gold-bg:#faf6ed;--r:6px;--r2:10px;--r3:14px}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:'Manrope',sans-serif}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 6vw;height:62px;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.92);backdrop-filter:blur(12px)}
+.nav-logo{font-family:'Manrope',sans-serif;font-weight:800;font-size:17px;letter-spacing:-0.03em;color:var(--text);text-decoration:none}
+.nav-logo span{color:var(--gold)}
+.nav-back{font-size:13.5px;color:var(--text2);text-decoration:none;display:flex;align-items:center;gap:6px;transition:color .18s}
+.nav-back:hover{color:var(--text)}
+.case-hero{padding:62px 6vw 0;border-bottom:1px solid var(--border)}
+.case-hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;padding:64px 0 48px}
+.case-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.case-tag{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);background:var(--gold-bg);border:1px solid #e8d9a8;padding:4px 10px;border-radius:4px}
+.case-hero h1{font-size:clamp(32px,4vw,56px);font-weight:800;letter-spacing:-0.04em;line-height:1.05;color:var(--text)}
+.case-hero-right{display:flex;flex-direction:column;gap:32px;align-items:flex-end;padding-bottom:4px}
+.case-desc{font-size:17px;color:var(--text2);font-weight:400;line-height:1.7;letter-spacing:-0.01em;text-align:right;max-width:460px}
+.case-meta{display:flex;gap:32px}
+.case-meta-item{text-align:right}
+.case-meta-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--text3);margin-bottom:4px}
+.case-meta-val{font-family:'Manrope',sans-serif;font-size:15px;font-weight:700;letter-spacing:-0.02em;color:var(--text)}
+.media-section{padding:80px 6vw}
+.media-block{margin-bottom:72px}
+.media-block:last-child{margin-bottom:0}
+.block-label{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--text3);margin-bottom:24px;display:flex;align-items:center;gap:10px}
+.block-label::before{content:'';display:inline-block;width:16px;height:1px;background:var(--text3)}
+.block-quote{font-family:'Manrope',sans-serif;font-size:clamp(20px,2.5vw,30px);font-weight:700;letter-spacing:-0.03em;line-height:1.2;color:var(--text);max-width:760px;margin-bottom:24px}
+.block-text{font-size:16px;color:var(--text2);line-height:1.75;max-width:640px;letter-spacing:-0.01em}
+.mg-full{width:100%;border-radius:var(--r3);overflow:hidden}
+.mg-full img,.mg-full video{width:100%;display:block;border-radius:var(--r3)}
+.mg-full iframe{width:100%;aspect-ratio:16/9;border:none;border-radius:var(--r3);display:block}
+.mg-full video{aspect-ratio:16/9;object-fit:cover}
+.mg-2col{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
+.mg-3col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:12px 0}
+.mg-4col{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px;margin:12px 0}
+.mg-75-25{display:grid;grid-template-columns:3fr 1fr;gap:12px;margin:12px 0}
+.mg-col{border-radius:var(--r2);overflow:hidden}
+.mg-col img{width:100%;height:100%;object-fit:cover;display:block}
+.mg-col video{width:100%;display:block;object-fit:cover}
+.mg-col.sq img,.mg-col.sq video{aspect-ratio:1/1}
+.mg-col.rect img,.mg-col.rect video{aspect-ratio:4/3}
+.mg-col.wide img,.mg-col.wide video{aspect-ratio:16/9}
+.mg-col.strip img,.mg-col.strip video{aspect-ratio:21/9}
+.mg-gap{margin-top:12px}
+.two-col-text{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;margin-top:48px}
+.team-section{padding:64px 6vw;border-top:1px solid var(--border);background:var(--bg2)}
+.team-section h2{font-size:28px;font-weight:800;letter-spacing:-0.03em;margin-bottom:32px;color:var(--text)}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:4px}
+.team-item{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:10px 0;border-bottom:1px solid var(--border);font-size:13.5px}
+.team-role{color:var(--text3);font-weight:400;font-size:12px}
+.team-name{color:var(--text);font-weight:500}
+.client-line{font-size:13px;color:var(--text3);margin-top:20px}
+.client-line strong{color:var(--text2);font-weight:500}
+.case-nav{padding:64px 6vw;display:grid;grid-template-columns:1fr 1fr;gap:16px;border-top:1px solid var(--border)}
+.case-nav-card{display:block;text-decoration:none;background:var(--bg2);border:1px solid var(--border);border-radius:var(--r3);padding:28px 24px;transition:border-color .2s,transform .2s}
+.case-nav-card:hover{border-color:var(--border-h);transform:translateY(-2px)}
+.case-nav-dir{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--text3);margin-bottom:10px}
+.case-nav-thumb{width:100%;aspect-ratio:16/7;border-radius:var(--r2);overflow:hidden;margin-bottom:12px;background:var(--bg3)}
+.case-nav-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;opacity:.88}
+.case-nav-card:hover .case-nav-thumb img{transform:scale(1.03);opacity:1}
+.case-nav-title{font-family:'Manrope',sans-serif;font-size:15px;font-weight:700;letter-spacing:-0.02em;color:var(--text)}
+.case-nav-cat{font-size:12px;color:var(--text3);margin-top:4px}
+.case-cta{text-align:center;padding:96px 6vw;border-top:1px solid var(--border)}
+.case-cta h2{font-size:clamp(28px,4vw,50px);font-weight:800;letter-spacing:-0.04em;line-height:1.05;margin-bottom:16px;color:var(--text)}
+.case-cta h2 em{font-style:normal;color:var(--gold)}
+.case-cta p{font-size:16px;color:var(--text2);max-width:420px;margin:0 auto 36px;line-height:1.7;letter-spacing:-0.01em}
+.cta-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:7px;background:var(--text);color:#fff;font-family:'Inter',sans-serif;font-size:14px;font-weight:500;padding:13px 24px;border-radius:var(--r);text-decoration:none;letter-spacing:-0.01em;transition:opacity .18s,transform .18s}
+.btn-primary:hover{opacity:.82;transform:translateY(-1px)}
+.btn-outline{display:inline-flex;align-items:center;gap:7px;background:transparent;color:var(--text2);font-family:'Inter',sans-serif;font-size:14px;font-weight:400;padding:12px 18px;border-radius:var(--r);text-decoration:none;border:1px solid var(--border);letter-spacing:-0.01em;transition:border-color .18s,color .18s}
+.btn-outline:hover{border-color:var(--border-h);color:var(--text)}
+footer{padding:36px 6vw;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;background:var(--bg2)}
+.footer-logo{font-family:'Manrope',sans-serif;font-weight:800;font-size:15px;letter-spacing:-0.03em;color:var(--text2);text-decoration:none}
+.footer-logo span{color:var(--gold)}
+.footer-copy{font-size:12px;color:var(--text3)}
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+@media(max-width:860px){.case-hero-inner,.two-col-text{grid-template-columns:1fr;gap:24px}.case-hero-right{align-items:flex-start}.case-desc{text-align:left}.case-meta{justify-content:flex-start}.mg-2col,.mg-3col,.mg-4col,.mg-75-25{grid-template-columns:1fr}.case-nav{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">Adshot<span>.</span>Europe</a>
+  <a href="index.html#work" class="nav-back">← All work</a>
+</nav>
+<div class="case-hero">
+  <div class="case-hero-inner">
+    <div>
+      <div class="case-tags"><span class="case-tag">Creative</span><span class="case-tag">Video</span><span class="case-tag">Key Visual</span><span class="case-tag">Production</span></div>
+      <h1>Atoxil:<br>Go Viral</h1>
+    </div>
+    <div class="case-hero-right">
+      <p class="case-desc">A sharp-witted pharmaceutical campaign that exposed the danger of cheap, untested copycat products — and made audiences think twice before choosing an 'analogue'.</p>
+      <div class="case-meta">
+        <div class="case-meta-item"><div class="case-meta-label">Year</div><div class="case-meta-val">2025</div></div>
+        <div class="case-meta-item"><div class="case-meta-label">Type</div><div class="case-meta-val">Campaign</div></div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<div class="media-section">
+  <div class="media-block fade-in">
+    <div class="mg-full"><img src="https://www.adshot.ua/wp-content/uploads/2025/12/01_atoxil_big_rectangle-1.webp" alt="Atoxil hero"></div>
+    <div class="two-col-text">
+      <div class="block-quote">In pharma, clinical trials sometimes happen on the end consumer.</div>
+      <div class="block-text">The market is full of manufacturers who cut corners on development but invest heavily in distribution and promotion. Responsible pharmaceutical companies face this problem constantly — how do you protect consumers who might be swayed by a cheap "analogue" of unknown quality?</div>
+    </div>
+  </div>
+  <div class="media-block fade-in">
+    <div class="mg-2col">
+      <div class="mg-col rect"><video autoplay muted loop playsinline><source src="https://www.adshot.ua/wp-content/uploads/2025/12/02_atoxil_small_rectangle-1.mp4" type="video/mp4"></video></div>
+      <div class="mg-col rect"><video autoplay muted loop playsinline><source src="https://www.adshot.ua/wp-content/uploads/2025/12/03_atoxil_small_rectangle-1.mp4" type="video/mp4"></video></div>
+    </div>
+  </div>
+  <div class="media-block fade-in">
+    <div class="mg-full"><iframe src="https://www.youtube.com/embed/9PsGW_59KOk?si=VhSbcjYC6VMyS-Jc" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+  </div>
+  <div class="media-block fade-in">
+    <div class="mg-2col">
+      <div class="mg-col sq"><img src="https://www.adshot.ua/wp-content/uploads/2025/12/05_atoxil_biq_square-1.webp" alt="A5"></div>
+      <div class="mg-col sq"><img src="https://www.adshot.ua/wp-content/uploads/2025/12/06_atoxil_biq_square-1.webp" alt="A6"></div>
+    </div>
+    <p class="block-text" style="margin-top:32px;">Choose what's been proven by people and time. Atoxil has held its standard on the Ukrainian market for over 15 years.</p>
+  </div>
+  <div class="media-block fade-in">
+    <div class="mg-full"><img src="https://www.adshot.ua/wp-content/uploads/2025/12/07_atoxil_biq_rectangle-1.webp" alt="Atoxil big"></div>
+  </div>
+  <div class="media-block fade-in">
+    <div class="mg-full"><iframe src="https://www.youtube.com/embed/YkYID01c1w4?si=9jO_rI6-ClQ5TUod" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+  </div>
+  <div class="media-block fade-in">
+    <div class="mg-4col">
+      <div class="mg-col sq"><img src="https://www.adshot.ua/wp-content/uploads/2025/12/08_atoxil_small_square-1.webp" alt="A8"></div>
+      <div class="mg-col sq"><img src="https://www.adshot.ua/wp-content/uploads/2025/12/09_atoxil_small_square-1.webp" alt="A9"></div>
+      <div class="mg-col sq"><img src="https://www.adshot.ua/wp-content/uploads/2025/12/10_atoxil_small_square-1.webp" alt="A10"></div>
+      <div class="mg-col sq"><img src="https://www.adshot.ua/wp-content/uploads/2025/12/11_atoxil_small_square-1.webp" alt="A11"></div>
+    </div>
+  </div>
+</div>
+<div class="team-section fade-in">
+  <h2>Team</h2>
+  <div class="team-grid"><div class="team-item"><span class="team-name">Oleh Zavhorodnii</span><span class="team-role">Creative Director</span></div><div class="team-item"><span class="team-name">Oksana Chernichenko</span><span class="team-role">Head of Art</span></div><div class="team-item"><span class="team-name">Iryna Ternavska</span><span class="team-role">Art Director</span></div><div class="team-item"><span class="team-name">Vasyl Khashchevyi</span><span class="team-role">Creative Copywriter</span></div><div class="team-item"><span class="team-name">Hrytsyk Chebanyi</span><span class="team-role">Designer</span></div><div class="team-item"><span class="team-name">Veronika Vovk</span><span class="team-role">Designer</span></div><div class="team-item"><span class="team-name">Maria Kravchuk</span><span class="team-role">Designer</span></div><div class="team-item"><span class="team-name">Alina Mishchenko</span><span class="team-role">Designer</span></div><div class="team-item"><span class="team-name">Yaroslava Serediuk</span><span class="team-role">Motion Designer</span></div><div class="team-item"><span class="team-name">Kateryna Skybyliak</span><span class="team-role">Account Director</span></div><div class="team-item"><span class="team-name">Svitlana Kharytanova</span><span class="team-role">Account Manager</span></div></div>
+  <p class="client-line">Client: <strong>Orisil-Pharm</strong></p><p class="client-line">Director: <strong>Maksym Marchenko</strong></p>
+</div><div class="case-nav fade-in">
+  <a href="night-shift.html" class="case-nav-card">
+    <div class="case-nav-dir">← Previous</div>
+    <div class="case-nav-thumb"><img src="https://www.adshot.ua/wp-content/uploads/2026/02/nichna-zmina.gif" alt="Night Shift: AI Film"></div>
+    <div class="case-nav-title">Night Shift: AI Film</div>
+    <div class="case-nav-cat">AI Animation</div>
+  </a>
+  <a href="guinness.html" class="case-nav-card">
+    <div class="case-nav-dir">Next →</div>
+    <div class="case-nav-thumb"><img src="https://www.adshot.ua/wp-content/uploads/2025/11/08_guinness_big_square.webp" alt="Guinness: Lucky You"></div>
+    <div class="case-nav-title">Guinness: Lucky You</div>
+    <div class="case-nav-cat">Design · Merch</div>
+  </a>
+</div>
+<div class="case-cta fade-in">
+  <h2>Want video<br>like <em>this?</em></h2>
+  <p>Tell us your brief. We'll tell you honestly whether we're the right fit — and if we are, you'll have a proposal in 48 hours.</p>
+  <div class="cta-row">
+    <a href="https://calendly.com/serhii-nabok/30min" class="btn-primary">Book a call →</a>
+    <a href="mailto:serhii@adshot.eu" class="btn-outline">serhii@adshot.eu</a>
+    <a href="https://linkedin.com/in/serhiinabok" class="btn-outline">LinkedIn →</a>
+  </div>
+</div>
+<footer>
+  <a href="index.html" class="footer-logo">Adshot<span>.</span>Europe</a>
+  <div class="footer-copy">Lisbon, Portugal · © 2025 AdShot Europe</div>
+</footer>
+<script>
+  const faders=document.querySelectorAll('.fade-in');
+  const obs=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*60);obs.unobserve(e.target)}})},{threshold:0.08});
+  faders.forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
