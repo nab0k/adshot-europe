@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Night Shift: AI Film — AdShot Europe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #ffffff;
+  --bg2: #f7f7f5;
+  --bg3: #f0efe9;
+  --border: #e8e7e2;
+  --border-h: #d0cfc8;
+  --text: #1a1a18;
+  --text2: #6b6b65;
+  --text3: #a8a8a0;
+  --gold: #b89a4a;
+  --gold-bg: #faf6ed;
+  --r: 6px;
+  --r2: 10px;
+  --r3: 14px;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4 { font-family: 'Manrope', sans-serif; }
+
+/* ── NAV ─────────────────────────────────── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 6vw; height: 62px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(12px);
+}
+.nav-logo {
+  font-family: 'Manrope', sans-serif; font-weight: 800;
+  font-size: 17px; letter-spacing: -0.03em;
+  color: var(--text); text-decoration: none;
+}
+.nav-logo span { color: var(--gold); }
+.nav-back {
+  font-size: 13.5px; color: var(--text2); text-decoration: none;
+  display: flex; align-items: center; gap: 6px;
+  transition: color 0.18s;
+}
+.nav-back:hover { color: var(--text); }
+
+/* ── HERO ─────────────────────────────────── */
+.case-hero {
+  padding: 62px 6vw 0;
+  border-bottom: 1px solid var(--border);
+}
+.case-hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: end;
+  padding: 64px 0 48px;
+}
+.case-tags {
+  display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;
+}
+.case-tag {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--gold);
+  background: var(--gold-bg); border: 1px solid #e8d9a8;
+  padding: 4px 10px; border-radius: 4px;
+}
+.case-hero h1 {
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 800; letter-spacing: -0.04em;
+  line-height: 1.05; color: var(--text);
+}
+.case-hero-right {
+  display: flex; flex-direction: column; gap: 32px;
+  align-items: flex-end; padding-bottom: 4px;
+}
+.case-desc {
+  font-size: 17px; color: var(--text2); font-weight: 400;
+  line-height: 1.7; letter-spacing: -0.01em; text-align: right;
+  max-width: 460px;
+}
+.case-meta {
+  display: flex; gap: 32px;
+}
+.case-meta-item { text-align: right; }
+.case-meta-label {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--text3); margin-bottom: 4px;
+}
+.case-meta-val {
+  font-family: 'Manrope', sans-serif;
+  font-size: 15px; font-weight: 700;
+  letter-spacing: -0.02em; color: var(--text);
+}
+
+/* ── AWARDS BAR ──────────────────────────── */
+.awards-bar {
+  background: var(--text);
+  padding: 20px 6vw;
+  display: flex; gap: 48px; align-items: center; flex-wrap: wrap;
+}
+.award-item { display: flex; align-items: center; gap: 12px; }
+.award-icon-lg { font-size: 22px; }
+.award-name {
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px; font-weight: 700;
+  color: #fff; letter-spacing: -0.02em;
+}
+.award-event { font-size: 12px; color: rgba(255,255,255,0.5); }
+.award-sep {
+  width: 1px; height: 32px;
+  background: rgba(255,255,255,0.15);
+}
+
+/* ── MEDIA GRID ──────────────────────────── */
+.media-section { padding: 80px 6vw; }
+
+.media-block { margin-bottom: 80px; }
+.media-block:last-child { margin-bottom: 0; }
+
+.block-label {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--text3);
+  margin-bottom: 24px;
+  display: flex; align-items: center; gap: 10px;
+}
+.block-label::before {
+  content: ''; display: inline-block;
+  width: 16px; height: 1px; background: var(--text3);
+}
+
+.block-quote {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(20px, 2.5vw, 30px);
+  font-weight: 700; letter-spacing: -0.03em;
+  line-height: 1.2; color: var(--text);
+  max-width: 760px; margin-bottom: 32px;
+}
+.block-text {
+  font-size: 16px; color: var(--text2);
+  line-height: 1.75; max-width: 640px;
+  font-weight: 400; letter-spacing: -0.01em;
+}
+
+/* media grid layouts */
+.mg-full { width: 100%; border-radius: var(--r3); overflow: hidden; }
+.mg-full img, .mg-full video, .mg-full iframe {
+  width: 100%; display: block;
+}
+.mg-full iframe { aspect-ratio: 16/9; border: none; }
+.mg-full video { aspect-ratio: 16/9; object-fit: cover; }
+
+.mg-2col {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 12px; margin: 12px 0;
+}
+.mg-3col {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px; margin: 12px 0;
+}
+.mg-75-25 {
+  display: grid; grid-template-columns: 3fr 1fr;
+  gap: 12px; margin: 12px 0;
+}
+.mg-25-75 {
+  display: grid; grid-template-columns: 1fr 3fr;
+  gap: 12px; margin: 12px 0;
+}
+.mg-col { border-radius: var(--r2); overflow: hidden; }
+.mg-col img, .mg-col video {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.mg-col.sq img  { aspect-ratio: 1/1; }
+.mg-col.rect img { aspect-ratio: 4/3; }
+.mg-col.wide img { aspect-ratio: 16/9; }
+.mg-col video { aspect-ratio: 4/3; }
+
+.mg-gap { margin-top: 12px; }
+
+/* ── CHALLENGES ──────────────────────────── */
+.challenges {
+  background: var(--bg2);
+  border-radius: var(--r3);
+  padding: 48px;
+  margin: 64px 0;
+}
+.challenges h3 {
+  font-size: 22px; font-weight: 800;
+  letter-spacing: -0.03em; margin-bottom: 28px; color: var(--text);
+}
+.challenge-list { display: flex; flex-direction: column; gap: 16px; }
+.challenge-item {
+  display: flex; gap: 16px; align-items: flex-start;
+}
+.challenge-num {
+  font-family: 'Manrope', sans-serif;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.1em; color: var(--text3);
+  min-width: 24px; padding-top: 2px;
+}
+.challenge-item p {
+  font-size: 15px; color: var(--text2);
+  line-height: 1.65; letter-spacing: -0.01em;
+}
+.challenge-item p strong { color: var(--text); font-weight: 600; }
+
+/* ── TEAM ────────────────────────────────── */
+.team-section {
+  padding: 64px 6vw;
+  border-top: 1px solid var(--border);
+  background: var(--bg2);
+}
+.team-section h2 {
+  font-size: 28px; font-weight: 800;
+  letter-spacing: -0.03em; margin-bottom: 32px; color: var(--text);
+}
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 4px;
+}
+.team-item {
+  display: flex; justify-content: space-between;
+  align-items: baseline; gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13.5px;
+}
+.team-role { color: var(--text3); font-weight: 400; font-size: 12px; }
+.team-name { color: var(--text); font-weight: 500; }
+
+/* ── NEXT/PREV ───────────────────────────── */
+.case-nav {
+  padding: 64px 6vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  border-top: 1px solid var(--border);
+}
+.case-nav-card {
+  display: block; text-decoration: none;
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: var(--r3); padding: 28px 24px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.case-nav-card:hover { border-color: var(--border-h); transform: translateY(-2px); }
+.case-nav-dir {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--text3); margin-bottom: 10px;
+}
+.case-nav-thumb {
+  width: 100%; aspect-ratio: 16/7;
+  border-radius: var(--r2); overflow: hidden;
+  margin-bottom: 12px; background: var(--bg3);
+}
+.case-nav-thumb img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform 0.4s ease; opacity: 0.88;
+}
+.case-nav-card:hover .case-nav-thumb img { transform: scale(1.03); opacity: 1; }
+.case-nav-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: 15px; font-weight: 700;
+  letter-spacing: -0.02em; color: var(--text);
+}
+.case-nav-cat { font-size: 12px; color: var(--text3); margin-top: 4px; }
+
+/* ── CTA ─────────────────────────────────── */
+.case-cta {
+  text-align: center; padding: 96px 6vw;
+  border-top: 1px solid var(--border);
+}
+.case-cta h2 {
+  font-size: clamp(28px, 4vw, 50px);
+  font-weight: 800; letter-spacing: -0.04em;
+  line-height: 1.05; margin-bottom: 16px; color: var(--text);
+}
+.case-cta h2 em { font-style: normal; color: var(--gold); }
+.case-cta p {
+  font-size: 16px; color: var(--text2);
+  max-width: 420px; margin: 0 auto 36px;
+  line-height: 1.7; letter-spacing: -0.01em;
+}
+.cta-row {
+  display: flex; gap: 10px;
+  justify-content: center; flex-wrap: wrap;
+}
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: var(--text); color: #fff;
+  font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500;
+  padding: 13px 24px; border-radius: var(--r);
+  text-decoration: none; letter-spacing: -0.01em;
+  transition: opacity 0.18s, transform 0.18s;
+}
+.btn-primary:hover { opacity: 0.82; transform: translateY(-1px); }
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: transparent; color: var(--text2);
+  font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 400;
+  padding: 12px 18px; border-radius: var(--r);
+  text-decoration: none; border: 1px solid var(--border);
+  letter-spacing: -0.01em; transition: border-color 0.18s, color 0.18s;
+}
+.btn-outline:hover { border-color: var(--border-h); color: var(--text); }
+
+/* ── FOOTER ──────────────────────────────── */
+footer {
+  padding: 36px 6vw; border-top: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 20px; flex-wrap: wrap; background: var(--bg2);
+}
+.footer-logo {
+  font-family: 'Manrope', sans-serif; font-weight: 800;
+  font-size: 15px; letter-spacing: -0.03em;
+  color: var(--text2); text-decoration: none;
+}
+.footer-logo span { color: var(--gold); }
+.footer-copy { font-size: 12px; color: var(--text3); }
+
+/* ── RESPONSIVE ──────────────────────────── */
+@media (max-width: 860px) {
+  .case-hero-inner { grid-template-columns: 1fr; gap: 24px; }
+  .case-hero-right { align-items: flex-start; }
+  .case-desc { text-align: left; }
+  .case-meta { justify-content: flex-start; }
+  .mg-2col, .mg-3col, .mg-75-25, .mg-25-75 { grid-template-columns: 1fr; }
+  .case-nav { grid-template-columns: 1fr; }
+  .challenges { padding: 28px 20px; }
+  .awards-bar { gap: 20px; }
+  .award-sep { display: none; }
+}
+
+/* ── FADE IN ─────────────────────────────── */
+.fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Adshot<span>.</span>Europe</a>
+  <a href="index.html#work" class="nav-back">← All work</a>
+</nav>
+
+<!-- HERO -->
+<div class="case-hero">
+  <div class="case-hero-inner">
+    <div>
+      <div class="case-tags">
+        <span class="case-tag">AI Animation</span>
+        <span class="case-tag">Short Film</span>
+        <span class="case-tag">Festival</span>
+      </div>
+      <h1>Night Shift:<br>AI Film</h1>
+    </div>
+    <div class="case-hero-right">
+      <p class="case-desc">A film where the physical dissection of the body flows into a metaphysical exploration of the soul. Ukrainian short animation that conquered Hollywood.</p>
+      <div class="case-meta">
+        <div class="case-meta-item">
+          <div class="case-meta-label">Year</div>
+          <div class="case-meta-val">2025</div>
+        </div>
+        <div class="case-meta-item">
+          <div class="case-meta-label">Type</div>
+          <div class="case-meta-val">AI Animation</div>
+        </div>
+        <div class="case-meta-item">
+          <div class="case-meta-label">Awards</div>
+          <div class="case-meta-val">2 wins</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AWARDS BAR -->
+<div class="awards-bar">
+  <div class="award-item">
+    <span class="award-icon-lg">🏆</span>
+    <div>
+      <div class="award-name">Best Short Animation</div>
+      <div class="award-event">AI International Film Festival · Hollywood</div>
+    </div>
+  </div>
+  <div class="award-sep"></div>
+  <div class="award-item">
+    <span class="award-icon-lg">🥇</span>
+    <div>
+      <div class="award-name">Best Animation</div>
+      <div class="award-event">MEGOGO AI Film Festival · Odesa International Film Festival</div>
+    </div>
+  </div>
+</div>
+
+<!-- MEDIA + CONTENT -->
+<div class="media-section">
+
+  <!-- Block 1: Hero image + intro -->
+  <div class="media-block fade-in">
+    <div class="mg-full">
+      <img src="ns_01_nichna-zmina_big_rectangle-2.webp" alt="Night Shift — main visual">
+    </div>
+    <div style="margin-top: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">
+      <div class="block-quote">A Ukrainian short film that took Hollywood by storm — winning two festival awards in 2025.</div>
+      <div class="block-text">The film tells the story of constant contact with another's pain, and how that experience transforms a person. The story is visualized in a wool animation style, created with AI tools.<br><br>News of the Ukrainian triumph in Hollywood spread instantly — covered by leading Ukrainian and international media as an example of a new wave of AI cinema from Ukraine.</div>
+    </div>
+  </div>
+
+  <!-- Block 2: Small visuals grid -->
+  <div class="media-block fade-in">
+    <div class="block-label">Stills</div>
+    <div class="mg-2col">
+      <div class="mg-col sq"><img src="ns_02_nichna-zmina_small_square-1.webp" alt="Still 1"></div>
+      <div class="mg-col sq"><img src="ns_03_nichna-zmina_small_square-2.webp" alt="Still 2"></div>
+    </div>
+    <div class="mg-2col mg-gap">
+      <div class="mg-col">
+        <video autoplay muted loop playsinline>
+          <source src="https://www.adshot.ua/wp-content/uploads/2026/02/04_nichna-zmina_small_rectangle-1-1.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="mg-col">
+        <video autoplay muted loop playsinline>
+          <source src="https://www.adshot.ua/wp-content/uploads/2026/02/05_nichna-zmina_small_rectangle-1.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+    <div class="mg-2col mg-gap">
+      <div class="mg-col sq"><img src="ns_06_nichna-zmina_small_square-2.webp" alt="Still 3"></div>
+      <div class="mg-col sq"><img src="ns_07_nichna-zmina_small_square-2.webp" alt="Still 4"></div>
+    </div>
+  </div>
+
+  <!-- Block 3: Full film embed -->
+  <div class="media-block fade-in">
+    <div class="block-label">Watch the film</div>
+    <div class="mg-full">
+      <iframe src="https://www.youtube.com/embed/V7TZspm3dk0?si=sNgIMR7gIEhQUPci" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- Block 4: Big squares + text -->
+  <div class="media-block fade-in">
+    <div class="mg-2col">
+      <div class="mg-col sq"><img src="ns_17_nichna-zmina_big_square.webp" alt="Still 5"></div>
+      <div class="mg-col sq"><img src="ns_18_nichna-zmina_big_square.webp" alt="Still 6"></div>
+    </div>
+    <div style="margin-top: 48px; max-width: 720px;">
+      <div class="block-quote">"We wanted to prove that we can do not just briefs — but art."</div>
+      <p class="block-text">That idea gave birth to a film where the physical dissection of the body flows into a metaphysical exploration of the soul. A story about constant contact with another's pain, and how that experience transforms a person.</p>
+    </div>
+  </div>
+
+  <!-- Block 5: Process clips -->
+  <div class="media-block fade-in">
+    <div class="block-label">Behind the process</div>
+    <div class="mg-2col">
+      <div class="mg-col">
+        <video autoplay muted loop playsinline>
+          <source src="https://www.adshot.ua/wp-content/uploads/2026/02/08_nichna-zmina_small_rectangle-1-1.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="mg-col rect"><img src="ns_09_nichna-zmina_small_rectangle-1.webp" alt="Process 1"></div>
+    </div>
+    <div class="mg-3col mg-gap">
+      <div class="mg-col rect"><img src="ns_10_nichna-zmina_small_rectangle-1.webp" alt="Process 2"></div>
+      <div class="mg-col">
+        <video autoplay muted loop playsinline>
+          <source src="https://www.adshot.ua/wp-content/uploads/2026/02/11_nichna-zmina_small_rectangle-1-1.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="mg-col">
+        <video autoplay muted loop playsinline>
+          <source src="https://www.adshot.ua/wp-content/uploads/2026/02/12_nichna-zmina_small_rectangle-1-1.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+    <div class="mg-full mg-gap">
+      <img src="ns_13_nichna-zmina_small_rectangle-1.webp" alt="Process 3">
+    </div>
+  </div>
+
+  <!-- Block 6: Challenges -->
+  <div class="media-block fade-in">
+    <div class="challenges">
+      <h3>The creative and technical challenges we solved</h3>
+      <div class="challenge-list">
+        <div class="challenge-item">
+          <span class="challenge-num">01</span>
+          <p><strong>Depicting a morgue without AI censorship bans.</strong> AI tools have strict content filters — we had to find workarounds in visual style and framing to show the subject matter without triggering them.</p>
+        </div>
+        <div class="challenge-item">
+          <span class="challenge-num">02</span>
+          <p><strong>Generating complex objects and scenes correctly.</strong> Hands, surgical tools, specific lighting — each required iterative prompting and creative problem-solving to achieve consistent results.</p>
+        </div>
+        <div class="challenge-item">
+          <span class="challenge-num">03</span>
+          <p><strong>Ukrainian lip-sync.</strong> AI lip-sync tools are trained predominantly on English. Achieving accurate Ukrainian language lip movement required experimental approaches and editing workarounds.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Block 7: More visuals + film trailer -->
+  <div class="media-block fade-in">
+    <div class="mg-full">
+      <img src="ns_14_nichna-zmina_big_rectangle-2.webp" alt="Final still">
+    </div>
+    <div style="margin-top: 48px; margin-bottom: 48px; text-align: center;">
+      <div class="block-quote" style="margin: 0 auto 0; text-align: center; font-style: italic; color: var(--text2);">"Night Shift became the point where advertising met art — and that meeting was unforgettable."</div>
+    </div>
+    <div class="mg-full">
+      <iframe src="https://www.youtube.com/embed/R_7UFGD12zA?si=Ux6QN-ivbfNdVOjg" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- Block 8: Final grid -->
+  <div class="media-block fade-in">
+    <div class="mg-2col">
+      <div class="mg-col sq"><img src="ns_19_nichna-zmina_small_square-2.webp" alt="Final 1"></div>
+      <div class="mg-col sq"><img src="ns_20_nichna-zmina_small_square-2.webp" alt="Final 2"></div>
+    </div>
+    <div class="mg-3col mg-gap">
+      <div class="mg-col">
+        <video autoplay muted loop playsinline>
+          <source src="https://www.adshot.ua/wp-content/uploads/2026/02/21_nichna-zmina_small_rectangle-1-1.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="mg-col rect"><img src="ns_22_nichna-zmina_small_rectangle-1.webp" alt="Final 3"></div>
+      <div class="mg-col sq"><img src="ns_23_nichna-zmina_small_square-2.webp" alt="Final 4"></div>
+    </div>
+    <div class="mg-full mg-gap">
+      <img src="ns_24_nichna-zmina_small_square-2.webp" alt="Final 5">
+    </div>
+  </div>
+
+</div>
+
+<!-- TEAM -->
+<div class="team-section fade-in">
+  <h2>Team</h2>
+  <div class="team-grid">
+    <div class="team-item"><span class="team-name">Yulia Kulish</span><span class="team-role">Creative Copywriter</span></div>
+    <div class="team-item"><span class="team-name">Yana Vynohrodska</span><span class="team-role">Art Director</span></div>
+    <div class="team-item"><span class="team-name">Vasyl Khashchevyi</span><span class="team-role">Creative Copywriter</span></div>
+    <div class="team-item"><span class="team-name">Oleh Zavhorodnii</span><span class="team-role">Creative Director</span></div>
+    <div class="team-item"><span class="team-name">Yaroslava Serediuk</span><span class="team-role">Motion Designer</span></div>
+    <div class="team-item"><span class="team-name">Polina Popil</span><span class="team-role">Designer</span></div>
+    <div class="team-item"><span class="team-name">Alina Mishchenko</span><span class="team-role">Designer</span></div>
+    <div class="team-item"><span class="team-name">Kateryna Skybyliak</span><span class="team-role">Account Director</span></div>
+    <div class="team-item"><span class="team-name">Svitlana Kharytanova</span><span class="team-role">Account Manager</span></div>
+    <div class="team-item"><span class="team-name">Viktoria Novosilets</span><span class="team-role">Producer</span></div>
+    <div class="team-item"><span class="team-name">Pylyp Kovalenko</span><span class="team-role">Sound Director</span></div>
+    <div class="team-item"><span class="team-name">Anton Cherevashko</span><span class="team-role">Head of Copy</span></div>
+    <div class="team-item"><span class="team-name">Alisa Davydenko</span><span class="team-role">Creative Copywriter</span></div>
+  </div>
+</div>
+
+<!-- NEXT / PREV -->
+<div class="case-nav fade-in">
+  <a href="index.html#work" class="case-nav-card">
+    <div class="case-nav-dir">← All cases</div>
+    <div class="case-nav-thumb">
+      <img src="nichna-zmina.gif" alt="All cases">
+    </div>
+    <div class="case-nav-title">Back to work</div>
+    <div class="case-nav-cat">View all cases</div>
+  </a>
+  <a href="https://calendly.com/serhii-nabok/30min" class="case-nav-card" target="_blank">
+    <div class="case-nav-dir">Interested? →</div>
+    <div class="case-nav-thumb" style="background: var(--text); display: flex; align-items: center; justify-content: center;">
+      <span style="font-family: 'Manrope', sans-serif; font-size: 28px; font-weight: 800; color: rgba(255,255,255,0.15); letter-spacing: -0.04em;">Let's talk</span>
+    </div>
+    <div class="case-nav-title">Book a discovery call</div>
+    <div class="case-nav-cat">30 min · Free</div>
+  </a>
+</div>
+
+<!-- CTA -->
+<div class="case-cta fade-in">
+  <h2>Want video<br>like <em>this?</em></h2>
+  <p>Tell us your brief. We'll tell you honestly whether we're the right fit — and if we are, you'll have a proposal in 48 hours.</p>
+  <div class="cta-row">
+    <a href="https://calendly.com/serhii-nabok/30min" class="btn-primary">Book a call →</a>
+    <a href="mailto:serhii@adshot.eu" class="btn-outline">serhii@adshot.eu</a>
+    <a href="https://linkedin.com/in/serhiinabok" class="btn-outline">LinkedIn →</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="index.html" class="footer-logo">Adshot<span>.</span>Europe</a>
+  <div class="footer-copy">Lisbon, Portugal · © 2025 AdShot Europe</div>
+</footer>
+
+<script>
+  const faders = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  faders.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
